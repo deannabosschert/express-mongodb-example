@@ -1,6 +1,6 @@
 # Express MongoDB example
-https://project-tech-2021.herokuapp.com/login
-![screenshot gif of app](https://github.com/deannabosschert/Matcher/blob/main/public/assets/img/screencapture_website.gif)
+https://project-tech-2021.herokuapp.com/login live version
+![screenshot gif of app](https://github.com/deannabosschert/express-mongodb-example/blob/main/public/assets/img/screencapture_website.gif)
 
 
 
@@ -13,18 +13,8 @@ https://project-tech-2021.herokuapp.com/login
 - [📋 Concept](#---concept)
 - [⚙️ Installation](#---installation)
 - [🗃 Data](#---data)
-  * [🐒 Color API](#---github-api)
-    + [Endpoint(s)](#endpoint-s-)
-    + [Rate limiting](#rate-limiting)
   * [💽 Data cleaning](#---data-cleaning)
 - [👯🏿‍ Features (+ wishlist)](#------features----wishlist-)
-- [🏫 Assignment](#---assignment)
-  * [Learning goals](#learning-goals)
-  * [Goals](#goals)
-  * [Rubric](#rubric)
-- [ℹ️ Resources](#---resources)
-  * [Credits](#credits)
-  * [Small inspiration sources](#small-inspiration-sources)
 - [🗺️ License](#----license)
 
 <!-- tocstop -->
@@ -33,17 +23,15 @@ https://project-tech-2021.herokuapp.com/login
 
 ## ✅ To-do
 - [x] Add password hashing
-- [ ] Add matching feature
-
 
 ## 📋 Concept
-Users kunnen een account aanmaken, hiermee inloggen en op basis van hun favoriete kleur gematched worden met andere users.
+User can register for an account, login with it, logout or delete it.
 
 
 ## ⚙️ Installation
 Clone this repository to your own device:
 ```bash
-$ git clone https://github.com/deannabosschert/Matcher.git
+$ git clone https://github.com/deannabosschert/express-mongodb-example.git
 ```
 Then, navigate to this folder and run:
 
@@ -58,13 +46,23 @@ npm run dev
 ```
 
 #### Environment variables
-Link your own database by creating a .env with the following:
+After creating your own database, link it by creating a .env with the following:
 
 ```json
 PORT=3000
 DB_NAME="${yourdatabasename}"
 C_NAME=${yourcollection}
 DB_URL=${yourdburl}
+SESSION_SECRET=1
+
+```
+
+example: 
+```json
+PORT=3000
+DB_NAME="matching-app"
+C_NAME=users
+DB_URmongodb+srv://techkech:password123@matching-app.zzw70.gcp.mongodb.net/test?retryWrites=true&w=majority
 SESSION_SECRET=1
 
 ```
@@ -106,33 +104,8 @@ SESSION_SECRET=1
 
 
 ## 🗃 Data
-
-### 🐒 API
-_What external data source is featured in your project and what are its properties?_ 
-
-Ik gebruik de ColorAPI, te vinden op https://www.thecolorapi.com/.
-
-Hier haal ik de 'named color' op van de user, en gebruik ik de data van complementaire kleuren als matcher.
-
-
-#### Properties
-Every color object returned by the API
-
-Is named (from a matched dataset of over 2000 names+colors)
-e.g. #24B1E0 == Cerulean
-Has an image URL for demonstration
-e.g. Cerulean image
-Is transposed into hex, rgb, cmyk, hsl, hsv and XYZ formats
-Is matched to a best-contrst color for text overlay, etc
-
-#### Rate limiting
-Niet vermeld!
-
 ### 💽 Data cleaning
-_What has been done with the fetched data?_What has been done with the initial data? Cleaning pattern?
-
-De wachtwoorden van de user worden gehashed alvorens in de database gestored
-
+The passwords of the user are hashed before being stored in the database.
 ```js
     const user = {
               username: req.body.userSignup,
@@ -171,51 +144,12 @@ _What would you like to add (feature wishlist / backlog)?_
 - [ ] Match with other users based on complementary colors
 
 
-## 🏫 Assignment
-<details>
-  <summary></strong> (click to expand)</summary>
-We’ll focus on what it means to be a web developer, the current landscape of that space, and topics such as privacy, security, diversity, inclusion, accessibility, communication and team work.
-
-
-### Learning goals
-
-- You can design and develop a dynamic matching web application
-- You can use version control using Git and GitHub
-- You can navigate the terminal and set-up your own development environment
-- You can write documentation that other developers understand
-- You can explain your code and the cohesion of your application
-- You can recognise good quality code, collaborate and review other people's code
-
-### Goals 🐒
-- Version control with Git (week 1)
-- Write docs in markdown (week 1)
-- Navigate the command line (week 2)
-- Code quality and linting (week 3)
-- Review code and understand code quality (week 4)
-- Collaborate on GitHub with other developers (week 5)
-- Learn about production environments and deployment (week 6)
-- Learn about privacy and security issues (week 7+)
-
-</details>
-
-### Rubric
-
-[Rubric- detailed rating of my project](https://github.com/deannabosschert/Matcher/wiki/Rubric)
-![rubric](https://github.com/deannabosschert/Matcher/blob/main/src/img/rubric.png)
-
-## ℹ️ Resources
-
-### Credits
-- Our superamazingteachers at @CMD
-
 ## 🗺️ License
 
 Authors: 
-- <!-- [Daniel van de Velde](https://github.com/deannabosschert) -->
-- <!-- [Reinier van Limpt](https://github.com/deannabosschert) -->
 - [Deanna Bosschert](https://github.com/deannabosschert)
 
 
 License by
-[MIT](https://github.com/deannabosschert/project/blob/master/LICENSE)
+[MIT](https://github.com/deannabosschert/Matcher/blob/master/LICENSE)
 

@@ -3,31 +3,31 @@
 <div class="profile">
     <div class="login">
         <div class="login_card">
-            <h2>Profiel</h2>
+            <h2>Profile</h2>
             <form class="profile_edit_form" id="edit_profile" action="/profile" method="POST" enctype="multipart/form-data">
                 <div class="profile_avatar" style="background-image: url('{{ userInfo.avatar }}');"></div>
-                <label class="profile_avatar_label" for="editImage">Profielfoto</label>
+                <label class="profile_avatar_label" for="editImage">Profile picture</label>
                 <input class="profile_editavatar" type="file" name="editImage" accept="image/*">
-                <span class="sign-up-failed">De gebruikersnaam <span class="takenUsername">{{ data.editUser }}</span> is al bezet, kies een andere.</span>
-                <label for="editUser">Gebruikersnaam</label>
+                <span class="sign-up-failed">The username <span class="takenUsername">{{ data.editUser }}</span> is already taken, choose another.</span>
+                <label for="editUser">Username</label>
                 <p>{{ userInfo.username }}</p>
                 <input class="gebruikersnaam no-err" type="text" name="editUser" id="editUser" value="{{ userInfo.username }}">
-                <label for="editAge">Leeftijd</label>
+                <label for="editAge">Age</label>
                 <p>{{ userInfo.age }}</p>
                 <input class="leeftijd no-err" type="text" name="editAge" id="editAge" value="{{ userInfo.age }}">
-                <label for="editLocation">Locatie</label>
+                <label for="editLocation">Location</label>
                 <p>{{ userInfo.location }}</p>
                 <input class="locatie no-err" type="text" name="editLocation" id="editLocation" value="{{ userInfo.location }}">
-                <label for="editDescription">Beschrijving</label>
+                <label for="editDescription">Description</label>
                 <p>{{ userInfo.description }}</p>
                 <textarea name="editDescription" id="editDescription" cols="30" rows="10">{{ userInfo.description }}</textarea>
-            <button class="profile_save">Opslaan</button>
+            <button class="profile_save">Save</button>
             </form>
-            <button class="profile_button">Bewerk profiel</button>
+            <button class="profile_button">Edit profile</button>
             <form id="logout_button" action="/logout" method="POST">
-                <button>Uitloggen</button>
+                <button>Logout</button>
             </form>
-            <a class="removebutton" href="/remove">Account verwijderen</a>
+            <a class="removebutton" href="/remove">Delete account</a>
         </div>
     </div>
 </div>

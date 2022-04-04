@@ -1,7 +1,7 @@
 {
   "name": "express-mongodb-example",
   "version": "1.0.0",
-  "description": "a dating app to establish the perfect match",
+  "description": "a boilerplate for express-mongodb applications that have a user model",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/deannabosschert/express-mongodb-example.git"

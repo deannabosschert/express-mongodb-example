@@ -1,3 +1,5 @@
+// please never use this file, it's spaghetti code and I'm not proud of it lol
+
 const formValidate = document.querySelector('#login_form')
 let signupCard = document.querySelector('.sign-up_card')
 if (formValidate) {

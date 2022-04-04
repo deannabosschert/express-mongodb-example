@@ -11,15 +11,15 @@ assignees: ''
 ## 📁 Part of repo: Readme
 
 ## 🖊️ Issue
-### Begrijp je het concept in de Readme?   
-_[zet hier je antwoord neer]_
+### Do you understand the concept in the readme?   
+_[write your answer here]_
 
-### Welke (sub)vragen roept dit concept bij je op?
-_[zet hier je antwoord neer]_
+### Which (sub)questions call this concept?
+_[write your answer here]_
 
 ## 📈 Recommendation
-### Welke data of manier van omgaan met deze data zou ik nog meer zou kunnen gebruiken bij deze vraag?
-_[zet hier je antwoord neer]_
+### Which data or method of handling this data would be more useful or be of additional value to use?
+_[write your answer here]_
 
 
 ![we've got issues](https://media.giphy.com/media/4Mni3cxTuKHDi/giphy.gif)
