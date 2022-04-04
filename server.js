@@ -5,7 +5,7 @@ const MongoDBSession = require('connect-mongodb-session')(session)
 const MongoClient = require('mongodb').MongoClient
 const bodyParser = require('body-parser') // to support JSON-encoded bodies
 const urlencodedParser = bodyParser.urlencoded({ extended: false }) // to support URL-encoded bodies
-const sessionID = 'sessionID' 
+let sessionID = 'sessionID'  
 let users_db = null // this will be the database object later on, needed a global variable to access it from other functions
 
 const redirectUrl = require('./lib/redirect-url.js') // this is a custom module that I made to redirect the user to the correct page based on their session (logged in/not logged in)
@@ -16,20 +16,26 @@ const removeProfile = require('./lib/actions/remove.js')
 const upload = require('./lib/helpers/multer.js') // multer is a middleware that handles file uploads
 const liquidEngine = require('./lib/helpers/liquid.js') // this is the liquid engine
 
+require('dotenv').config() // this is a module that reads the '.env' file and sets the environment variables
 
-require('dotenv').config()
+// MongoDB connection setup
 const url = process.env.DB_URL
 const port = process.env.PORT || 3000
+const options = { 
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}
+MongoClient.connect(url, options, (err, client) => { // connect to mongoDB
+  if (err) { console.log('MongoDB-client connect error: ' + err) } // if there is an error, log it
+  else { users_db = client.db(process.env.DB_NAME).collection('users')}}) // if there is no error, set the users_db variable to the users collection
+
+// Mongo Session setup
 const mongoSession = new MongoDBSession({ // create a new MongoDBSession object
   uri: url,
   collection: process.env.C_NAME
 })
+mongoSession.on('error', (err) => { console.log('MongoDB-session error:' + err) })  // error'afhandeling' mongodb session
 
-
-MongoClient.connect(url, (err, client) => { // connect to mongoDB
-  if (err) { console.log('MongoDB-client connect error:' + err) } // if there is an error, log it
-  else { users_db = client.db(process.env.DB_NAME).collection('users')}}) // if there is no error, set the users_db variable to the users collection
-mongoSession.on('error', (err) => { console.log('MongoDB-session error:' + err) })  // error'afhandeling' mongodb
 
 app
   .engine('liquid', liquidEngine) // register liquid as our view engine (can also be handlebars or ejs if you prefer)
